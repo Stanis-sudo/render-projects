@@ -1,19 +1,12 @@
-import _ from 'underscore';
+import express from "express";
 
-let vowels = ["a", "e", "i", "o", "u"];
-console.log(vowels);
-vowels = _.shuffle(vowels);
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-displayVowels();
+app.get("/", (req, res) => {
+  res.send("Hello from Render!");
+});
 
-function displayVowels() {
-    for (let vowel of vowels) {
-        console.log(vowel);
-    }
-}
-
-let hello = () => {
-    return"Hello, World!";
-}
-
-console.log(hello());
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
+});
